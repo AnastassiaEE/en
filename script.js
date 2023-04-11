@@ -217,7 +217,7 @@ $(() => {
     });
 
     swiper.on("slideChangeTransitionEnd", () => {
-        allowScroll(swiper);
+        //allowScroll(swiper);
         fillPiesBasingOnViewport(pies, piesPercentages);
         fillProgressBarsBasingOnViewport(progressBars, progressCirclesNumber);
     })
