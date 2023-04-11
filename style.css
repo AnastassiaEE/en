@@ -28,6 +28,10 @@
     overflow: hidden;
 }
 
+html, body {
+    height: 100%;
+}
+
 
 /* Navigation */
 
@@ -225,6 +229,8 @@
 .main {
     transform: translate3d(0, 0, 0);
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    height: 100%;
+    width: 100%;
 }
 
 .main--closed {
@@ -237,10 +243,13 @@
 /* Swiper */
 
 .swiper-container {
-    height: 600px;
+    width: 100%;
+    height: 100%;
 }
 
-.swiper-container--closed {
+.swiper-wrapper {
+    width: 100%;
+    height: 100%;
 }
 
 .swiper-slide {
