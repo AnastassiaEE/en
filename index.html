@@ -82,6 +82,7 @@
 
     .swiper-slide {
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
 
@@ -620,7 +621,7 @@
         */
 
         swiper.on('slideChangeTransitionEnd', function () {
-          handleScrollInside(swiper);
+          allowScroll(swiper);
         });
 
     })
