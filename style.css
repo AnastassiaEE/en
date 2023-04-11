@@ -237,7 +237,7 @@
 /* Swiper */
 
 .swiper-container {
-    height: 100vh;
+    height: 600px;
 }
 
 .swiper-container--closed {
