@@ -12,20 +12,63 @@
 
   <!-- Demo styles -->
   <style>
+    :root {
+      --main-font-family: 'Poppins', sans-serif;
+      --secondary-font-family: 'Open Sans', sans-serif; 
+      --main-text-color: white;
+      --secondary-text-color: rgba(255, 255, 255, 0.75);
+      --transparent-text-color: rgba(255, 255, 255, 0.5);
+      --elements-background-color: rgba(255, 255, 255, 0.2);
+      --main-color: #D1335B;
+    }
+
+    .b-bottom {
+      position: relative;
+    }
+
+    .b-bottom::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: radial-gradient(ellipse at left,rgba(197, 202, 213, 0.416) 0,hsla(0, 0%, 0%, 0) 70%);
+    }
+
+    /* html, body */
+
     html,
-    body {
+    body {  
       position: relative;
       height: 100%;
     }
 
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
+    /* Background */
+
+    .background {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
     }
+
+    .background::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to left, var(--main-color) -14%, #00152e 84%);
+    }
+
+/*
+.background__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+*/
 
     .swiper-container {
       width: 100%;
@@ -41,8 +84,8 @@
   </style>
 </head>
 
-<body>
-
+<body class="body m-0">
+  <div class="background"><!--<img class="background__img" src="" alt="cover">--></div>
   <div class="swiper-container">
       <div class="swiper-wrapper">
         <section class="swiper-slide">
