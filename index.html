@@ -81,9 +81,9 @@
     }
 
     .swiper-slide {
-      overflow: auto;
-      height: 100%;
+      overflow-y: auto;
     }
+
 
     /* Main Section */
 
@@ -529,6 +529,59 @@
 
   <!-- Initialize Swiper -->
   <script>
+
+    const heightToScroll = (slide) => {
+        const { scrollHeight, clientHeight } = slide;
+        return scrollHeight - clientHeight;
+    }
+    const allowScroll = (swiper) => {
+      const activeSlide = swiper.slides[swiper.activeIndex];
+      const scrollHeight = heightToScroll(activeSlide);
+      if (scrollHeight > 0) {
+          const findScroll = (e) => {
+              const scrollUp = e.deltaY < 0;
+              if ((scrollUp || e.type === "touchmove") && activeSlide.scrollTop <= 0) {
+                  swiper.mousewheel.enable();
+                  swiper.allowTouchMove = true;
+                  activeSlide.removeEventListener("wheel", findScroll);
+                  activeSlide.removeEventListener("touchmove", findScroll);
+              } else if ((!scrollUp || e.type === "touchmove") && Math.ceil(activeSlide.scrollTop) >= scrollHeight) {
+                  swiper.mousewheel.enable();
+                  swiper.allowTouchMove = true;
+                  activeSlide.removeEventListener("wheel", findScroll);
+                  activeSlide.removeEventListener("touchmove", findScroll);
+              }
+          };
+          activeSlide.addEventListener("wheel", findScroll);
+          activeSlide.addEventListener("touchmove", findScroll);
+          swiper.mousewheel.disable();
+          swiper.allowTouchMove = false;
+      }
+    };
+
+    const handleScrollInside = (swiper) => {
+    swiper.on("slideChangeTransitionEnd", () => {
+      const activeSlide = document.querySelector('.swiper-slide-active');
+      const hasVerticalScrollbar = activeSlide.scrollHeight > activeSlide.clientHeight;
+
+      if (hasVerticalScrollbar) {
+        const scrollDifferenceTop = activeSlide.scrollHeight - activeSlide.swiperSlideSize;
+
+        if (activeSlide.scrollTop === 0) activeSlide.scrollTop += 1;
+        if (activeSlide.scrollTop === scrollDifferenceTop) activeSlide.scrollTop -= 2;
+        swiper.mousewheel.disable();
+        swiper.allowTouchMove = false;
+
+        activeSlide.addEventListener("scroll", () => {
+          if (activeSlide.scrollTop <= 0 || scrollDifferenceTop - activeSlide.scrollTop <= 1 ) {
+            swiper.mousewheel.enable();
+            swiper.allowTouchMove = true;
+          }
+        });
+      }
+    })
+  }
+
     $(() => {
         
       var swiper = new Swiper(".swiper-container", {
@@ -542,6 +595,7 @@
         },
         });
 
+        /*
         var startScroll, touchStart, touchCurrent;
         $('.swiper-slide').on('touchstart', function (e) {
             startScroll = this.scrollTop;
@@ -563,8 +617,11 @@
                 e.stopPropagation();
             }
         });
+        */
 
-
+        swiper.on('slideChangeTransitionEnd', function () {
+          handleScrollInside(swiper);
+        });
 
     })
 
