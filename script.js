@@ -210,7 +210,6 @@ $(() => {
     const swiper = new Swiper('.swiper-container', {
         direction: 'vertical',
         slidesPerView: 1,
-        //spaceBetween: 30,
         mousewheel: true,
         speed: scrollSpeed,
         //noSwiping: true,
@@ -218,7 +217,7 @@ $(() => {
     });
 
     swiper.on("slideChangeTransitionEnd", () => {
-        allowScroll(swiper,);
+        allowScroll(swiper);
         fillPiesBasingOnViewport(pies, piesPercentages);
         fillProgressBarsBasingOnViewport(progressBars, progressCirclesNumber);
     })
