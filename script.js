@@ -210,11 +210,11 @@ $(() => {
     const swiper = new Swiper('.swiper-container', {
         direction: 'vertical',
         slidesPerView: 1,
-        spaceBetween: 30,
+        //spaceBetween: 30,
         mousewheel: true,
         speed: scrollSpeed,
-        noSwiping: true,
-        noSwipingClass: 'swiper-slide'
+        //noSwiping: true,
+        //noSwipingClass: 'swiper-slide'
     });
 
     swiper.on("slideChangeTransitionEnd", () => {
