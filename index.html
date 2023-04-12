@@ -539,7 +539,9 @@
         return $(slide).find('.swiper-slide').outerHeight() - $(slide).outerHeight();
     }
 
-    const allowScroll = (swiper) => {
+    let firstscroll = false;
+
+    const allowScroll = (swiper, swiper1) => {
       const activeSlide = swiper.slides[swiper.activeIndex];
       const scrollHeight = heightToScroll(activeSlide);
       if (scrollHeight > 0) {
@@ -547,27 +549,35 @@
         swiper.allowTouchMove = false;
         const findScroll = (e) => {
               const scrollUp = e.deltaY < 0;
+              console.log(scrollUp);
               const transformValues = $(activeSlide).find('.swiper-wrapper').css('transform').replace(')', '').replaceAll(' ', '').split(',');
               const transformYValue = parseFloat(transformValues[transformValues.length - 1]);
-              console.log(transformYValue);
-              console.log(scrollHeight);
-              if ((scrollUp || e.type === "touchmove") && transformYValue >= 0) {
-                  swiper.mousewheel.enable();
-                  swiper.allowTouchMove = true;
-                  //activeSlide.removeEventListener("wheel", findScroll);
-                  //activeSlide.removeEventListener("touchmove", findScroll);
-              } else if ((!scrollUp || e.type === "touchmove") && Math.abs(transformYValue) >= scrollHeight) {
-                  swiper.mousewheel.enable();
-                  swiper.allowTouchMove = true;
-                  //activeSlide.removeEventListener("wheel", findScroll);
-                  //activeSlide.removeEventListener("touchmove", findScroll);
+              if (transformYValue >= 0) {
+                  if(firstscroll) {
+                    swiper.slidePrev(600);
+                    firstscroll = false;
+                    activeSlide.removeEventListener("wheel", findScroll);
+                    activeSlide.removeEventListener("touchmove", findScroll);
+                  } else {
+                    firstscroll = true;
+                  }
+              } else if (Math.abs(transformYValue) >= scrollHeight) {
+                if(firstscroll) {
+                    swiper.slideNext(600);
+                    firstscroll = false;
+                    activeSlide.removeEventListener("wheel", findScroll);
+                    activeSlide.removeEventListener("touchmove", findScroll);
+                  } else {
+                    firstscroll = true;
+                  }
               }
           };
           activeSlide.addEventListener("wheel", findScroll);
-          activeSlide.addEventListener("touchmove", findScroll);
-      
-
-        }
+          activeSlide.addEventListener("touchmove", findScroll);    
+      } else {
+        swiper.mousewheel.enable();
+        swiper.allowTouchMove = true;
+      }
     };
 
     
