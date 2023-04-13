@@ -361,7 +361,7 @@
           </div> 
         </div>
       </section>
-      <section class="swiper-slide swiper mySwiper">
+      <section class="swiper-slide swiper swiper-scrollbar-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" style="height: auto">
             <div class="section__inner container py-4">
@@ -525,7 +525,6 @@
         </div>
       </section>
     </div>
-    <div class="swiper-pagination"></div>
   </main>
 
 
@@ -535,108 +534,79 @@
   <!-- Initialize Swiper -->
   <script>
 
-    const heightToScroll = (slide) => {
-        return $(slide).find('.swiper-slide').outerHeight() - $(slide).outerHeight();
-    }
-
-    let firstscroll = false;
-
-    const allowScroll = (swiper, swiper1) => {
-      const activeSlide = swiper.slides[swiper.activeIndex];
-      const scrollHeight = heightToScroll(activeSlide);
-      if (scrollHeight > 0) {
-        swiper.mousewheel.disable();
-        swiper.allowTouchMove = false;
-        const findScroll = (e) => {
-              const scrollUp = e.deltaY < 0;
-              console.log(scrollUp);
-              const transformValues = $(activeSlide).find('.swiper-wrapper').css('transform').replace(')', '').replaceAll(' ', '').split(',');
-              const transformYValue = parseFloat(transformValues[transformValues.length - 1]);
-              if (transformYValue >= 0) {
-                  if(firstscroll) {
-                    swiper.slidePrev(600);
-                    firstscroll = false;
-                    activeSlide.removeEventListener("wheel", findScroll);
-                    activeSlide.removeEventListener("touchmove", findScroll);
-                  } else {
-                    firstscroll = true;
-                  }
-              } else if (Math.abs(transformYValue) >= scrollHeight) {
-                if(firstscroll) {
-                    swiper.slideNext(600);
-                    firstscroll = false;
-                    activeSlide.removeEventListener("wheel", findScroll);
-                    activeSlide.removeEventListener("touchmove", findScroll);
-                  } else {
-                    firstscroll = true;
-                  }
-              }
-          };
-          activeSlide.addEventListener("wheel", findScroll);
-          activeSlide.addEventListener("touchmove", findScroll);    
-      } else {
-        swiper.mousewheel.enable();
-        swiper.allowTouchMove = true;
-      }
-    };
-
-    
-  
+      let allowSlidePrev = false;
+      let allowSlideNext = false;
+      let isBegginingReached = false;
+      let isEndReached = false;
 
     $(() => {
         
-      var swiper = new Swiper(".swiper-container", {
-        direction: "vertical",
+      var swiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
         slidesPerView: 1,
-        spaceBetween: 30,
         mousewheel: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        });
-
-        var swiper1 = new Swiper(".mySwiper", {
-          direction: "vertical",
-          slidesPerView: "auto",
-          freeMode: true,
-          scrollbar: {
-            el: ".swiper-scrollbar",
-            draggable: true
-          },
-        mousewheel: true,
+        simulateTouch: false,
+        observer: true,
+        observeParents: true,
+        breakpoints: {
+          992: {
+            direction: 'vertical',
+          }, 
+        }
       });
 
-        /*
-        var startScroll, touchStart, touchCurrent;
-        $('.swiper-slide').on('touchstart', function (e) {
-            startScroll = this.scrollTop;
-            touchStart = e.targetTouches[0].pageY;
-        });
-        $('.swiper-slide').on('touchmove', function (e) {
-            touchCurrent = e.targetTouches[0].pageY;
-            var touchesDiff = touchCurrent - touchStart;
-            var slide = this;
-            var onlyScrolling = 
-                    ( slide.scrollHeight > slide.offsetHeight ) && //allow only when slide is scrollable
-                    (
-                        ( touchesDiff < 0 && startScroll === 0 ) || //start from top edge to scroll bottom
-                        ( touchesDiff > 0 && startScroll === ( slide.scrollHeight - slide.offsetHeight ) ) || //start from bottom edge to scroll top
-                        ( startScroll > 0 && startScroll < ( slide.scrollHeight - slide.offsetHeight ) ) //start from the middle
-                    );
-                    
-            if (onlyScrolling) {
-                e.stopPropagation();
-            }
-        });
-        */
+        var swiper1 = new Swiper('.swiper-scrollbar-container', {
+          direction: 'vertical',
+          slidesPerView: 'auto',
+          freeMode: true,
+          scrollbar: {
+            el: '.swiper-scrollbar',
+            draggable: true
+          },
+          mousewheel: true,
+          nested: true,
+          
+      });
 
-        swiper.on('slideChangeTransitionEnd', function () {
-          allowScroll(swiper, swiper1);
+        
+
+        swiper1.on('reachBeginning', (e) => {
+          console.log('top');
+            swiper.allowSlidePrev = false;
+            isBegginingReached = true;
         });
+
+        swiper1.on('reachEnd', (e) => {
+          console.log('end');
+            swiper.allowSlideNext = false;
+            isEndReached = true;
+        });
+
+        swiper1.on('scroll touchMove', () => {
+          if (isBegginingReached) {
+            if (allowSlidePrev) {
+              swiper.allowSlidePrev = true;
+              allowSlidePrev = false; 
+              isBegginingReached = false;
+              return;
+            }
+            allowSlidePrev = true;
+          }
+          if (isEndReached) {
+            if (allowSlideNext) {
+              swiper.allowSlideNext = true;
+              allowSlideNext = false; 
+              isEndReached = false;
+              return;
+            } 
+            allowSlideNext = true;
+          };
+        });
+      
 
     })
 
+  
    
     
   </script>
