@@ -9,6 +9,7 @@ const piesPercentages = [50, 20, 80, 60];
 const progressCirclesNumber = [12, 8, 8];
 const letters = ['W', 'e', 'b', ' ', 'd', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'];
 const slideChangeSpeed = 300;
+var resizeTimer;
 
 // Slides
 
@@ -42,7 +43,7 @@ const fillPies = (pies, percentages) => {
     pies.forEach((element, index) => {
         fillPie(element, percentages[index]);
         $(element).next().html(percentages[index] + '%');
-    });
+    })
     arePiesFilled = true;
 }
 
@@ -81,7 +82,7 @@ const addLetter = () => {
         let timer = setInterval(() => {
             text += letters[letterIndex];
             letterIndex += 1;
-            $('.main-section__text').html(text);
+            $('.main-section__subtitle').html(text);
             if (text.length === letters.length) {
                 clearTimeout(timer);
                 resolve();
@@ -95,7 +96,7 @@ const removeLetter = () => {
         let text = letters.join('');
         let timer = setInterval(() => {
             text = text.slice(0, text.length - 1);
-            $('.main-section__text').html(text);
+            $('.main-section__subtitle').html(text);
             if (text.length == 0) {
                 clearInterval(timer);
                 resolve();
@@ -200,7 +201,6 @@ $(() => {
     $(scrollableSwiper).each((_, sw) => {
         sw.on('scroll touchMove', () => {
             if (isBegginingReached) {
-                console.log('beggining')
                 if (allowSlidePrev) {
                     swiper.allowSlidePrev = true;
                     allowSlidePrev = false; 
@@ -210,7 +210,6 @@ $(() => {
                 allowSlidePrev = true;
             }
             if (isEndReached) {
-                console.log('end')
                 if (allowSlideNext) {
                     swiper.allowSlideNext = true;
                     allowSlideNext = false; 
@@ -220,11 +219,6 @@ $(() => {
                 allowSlideNext = true;
             }
         })
-    })
-
-    $(window).on('wheel', () => {
-        console.log(swiper.allowSlideNext);
-        console.log(swiper.allowSlidePrev);
     })
 
     swiper.on('slideChange', () => {
@@ -240,8 +234,11 @@ $(() => {
         if ($(activeSlide).find('.section__progress-bars').length) fillProgressBars(progressBars, progressCirclesNumber);
     })
 
-    swiper.on('resize', () => {
-        centerLongSlidesContent(swiper);
+    $(window).on('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            centerLongSlidesContent(swiper);           
+        }, 100)
     })
 
     $('.menu__item').on('click', function() {
@@ -266,5 +263,9 @@ $(() => {
 
     $('.main').on('click', () => {
         closeMobileMenu();
+    })
+
+    $('.scroll-button, .swipe-button').on('click', () => {
+        swiper.slideNext();
     })
 })
