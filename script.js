@@ -9,22 +9,31 @@ const swiper = new Swiper('.swiper-container', {
             direction: 'vertical',
         } 
     },
-    
+    longSwipesMs: 1000
+   
 })
 
 const scrollableSwiper = new Swiper('.swiper-scrollbar-container', {
+    longSwipesMs: 1000, 
     direction: 'vertical',
     slidesPerView: 'auto',
-    mousewheel: true,
+    mousewheel:  {
+        enable: true,
+    },
     simulateTouch: false,
-    freeMode: true,
+    freeMode: {
+        enabled: true,
+    },
     nested: true,
     createElements: true,
     autoHeight: true,
     scrollbar: {
         el: '.swiper-scrollbar',
         draggable: true,
+        snapOnRelease: true
     },
+  
+    
 })
 
 let allowSlidePrev = false;
@@ -184,39 +193,13 @@ $(() => {
 
     
     $(scrollableSwiper).each((_, sw) => {
-        sw.on('reachBeginning', () => {
-            swiper.allowSlidePrev = false;
-            isBegginingReached = true;
-        })
-    })
-
-    $(scrollableSwiper).each((_, sw) => {
-        sw.on('reachEnd', () => {
-            swiper.allowSlideNext = false;
-            isEndReached = true;
-        })
-    })
-
-    $(scrollableSwiper).each((_, sw) => {
-        sw.on('scroll touchMove', () => {
-            if (isBegginingReached) {
-                if (allowSlidePrev) {
-                    swiper.allowSlidePrev = true;
-                    allowSlidePrev = false; 
-                    isBegginingReached = false;
-                    return;
-                }
-                allowSlidePrev = true;
-            }
-            if (isEndReached) {
-                if (allowSlideNext) {
-                    swiper.allowSlideNext = true;
-                    allowSlideNext = false; 
-                    isEndReached = false;
-                    return;
-                } 
-                allowSlideNext = true;
-            }
+        sw.on('reachBeginning reachEnd', () => {
+            console.log('end');
+            swiper.mousewheel.disable();
+            let mousewheelTimer = setTimeout(() => {
+                swiper.mousewheel.enable();
+                clearTimeout(mousewheelTimer);
+            }, 500);
         })
     })
 
