@@ -1,30 +1,50 @@
+const swiper = new Swiper('.swiper-container', {
+    direction: 'horizontal',
+    slidesPerView: 1,
+    mousewheel: true,
+    simulateTouch: false,
+    createElements: true,
+    breakpoints: {
+        992: {
+            direction: 'vertical',
+        } 
+    },
+    
+})
+
+const scrollableSwiper = new Swiper('.swiper-scrollbar-container', {
+    direction: 'vertical',
+    slidesPerView: 'auto',
+    mousewheel: true,
+    simulateTouch: false,
+    freeMode: true,
+    nested: true,
+    createElements: true,
+    autoHeight: true,
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+    },
+})
+
 let allowSlidePrev = false;
 let allowSlideNext = false;
 let isBegginingReached = false;
 let isEndReached = false;
 let arePiesFilled = false;
 let areProgressBarsFilled = false;
-const accentColor = '#D1335B';
-const piesPercentages = [50, 20, 80, 60];
-const progressCirclesNumber = [12, 8, 8];
+const accentColor = '#4d81b3';
+const piesPercentages = [100, 80, 60, 50, 50, 40];
+const progressCirclesNumber = [12, 7, 7];
 const letters = ['W', 'e', 'b', ' ', 'd', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'];
 const slideChangeSpeed = 300;
-var resizeTimer;
 
 // Slides
 
 const changeSlideOnClick = (menuItems, menuItem, swiper) => {
+    swiper.allowSlidePrev = true;
+    swiper.allowSlideNext = true;
     swiper.slideTo(menuItems.indexOf(menuItem), slideChangeSpeed);
-}
-
-const centerLongSlidesContent = (swiper) => {
-    $(swiper.slides).each((_, slide) => {
-        if ($(slide).find('.swiper-scrollbar').hasClass('swiper-scrollbar-lock')) {
-            $(slide).find('.swiper-wrapper').addClass('justify-content-center');
-        } else {
-            $(slide).find('.swiper-wrapper').removeClass('justify-content-center');
-        }
-    }) 
 }
 
 // Pies
@@ -82,7 +102,7 @@ const addLetter = () => {
         let timer = setInterval(() => {
             text += letters[letterIndex];
             letterIndex += 1;
-            $('.main-section__subtitle').html(text);
+            $('.subtitle--animated').html(text);
             if (text.length === letters.length) {
                 clearTimeout(timer);
                 resolve();
@@ -96,7 +116,7 @@ const removeLetter = () => {
         let text = letters.join('');
         let timer = setInterval(() => {
             text = text.slice(0, text.length - 1);
-            $('.main-section__subtitle').html(text);
+            $('.subtitle--animated').html(text);
             if (text.length == 0) {
                 clearInterval(timer);
                 resolve();
@@ -148,46 +168,25 @@ const closeMobileMenu = () => {
 
 $(() => {
 
+    let showScrollBarTimer = setTimeout(() => {
+        $(scrollableSwiper).each((_, sw) => {
+            sw.update();
+        })
+        clearTimeout(showScrollBarTimer);
+    }, 150)
+
+    animateText();
+
     const menuItems = $('.menu__item').get();
     const mobileMenuItems = $('.mobile-menu__item').get();
-    const pies = $('.pie').get();
-    const progressBars = $('.section__progress-bar').get();
-    
-    const swiper = new Swiper('.swiper-container', {
-        direction: 'horizontal',
-        slidesPerView: 1,
-        mousewheel: true,
-        simulateTouch: false,
-        observer: true,
-        observeParents: true,
-        updateOnWindowResize: true,
-        breakpoints: {
-            992: {
-                direction: 'vertical',
-            } 
-        }
-    })
+    const pies = $('.pie__circle').get();
+    const progressBars = $('.progress-bar__circles').get();
 
-    const scrollableSwiper = new Swiper('.swiper-scrollbar-container', {
-        direction: 'vertical',
-        slidesPerView: 'auto',
-        mousewheel: true,
-        simulateTouch: false,
-        freeMode: true,
-        nested: true,
-        scrollbar: {
-            el: '.swiper-scrollbar',
-            draggable: true
-        }
-    })
-
-    centerLongSlidesContent(swiper);
-    animateText();
     
     $(scrollableSwiper).each((_, sw) => {
         sw.on('reachBeginning', () => {
-        swiper.allowSlidePrev = false;
-        isBegginingReached = true;
+            swiper.allowSlidePrev = false;
+            isBegginingReached = true;
         })
     })
 
@@ -230,15 +229,8 @@ $(() => {
 
     swiper.on('transitionEnd', () => {
         const activeSlide = swiper.slides[swiper.activeIndex];
-        if ($(activeSlide).find('.section__pies').length) fillPies(pies, piesPercentages);
-        if ($(activeSlide).find('.section__progress-bars').length) fillProgressBars(progressBars, progressCirclesNumber);
-    })
-
-    $(window).on('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            centerLongSlidesContent(swiper);           
-        }, 100)
+        if ($(activeSlide).find('.pie').length) fillPies(pies, piesPercentages);
+        if ($(activeSlide).find('.progress-bar__circles').length) fillProgressBars(progressBars, progressCirclesNumber);
     })
 
     $('.menu__item').on('click', function() {
@@ -268,4 +260,5 @@ $(() => {
     $('.scroll-button, .swipe-button').on('click', () => {
         swiper.slideNext();
     })
+    
 })

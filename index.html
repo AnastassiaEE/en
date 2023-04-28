@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./bootstrap5/bootstrap-grid.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./style.css">
+  
   <script src="https://kit.fontawesome.com/798f7c6309.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
@@ -16,70 +17,70 @@
 <body>
   <div class="background"><!--<img class="background__img" src="" alt="cover">--></div>
   <nav class="nav">
-    <ul class="menu">
+    <ul class="menu nav__menu">
       <li class="menu__item menu__item--active">
-        <a href="#" class="menu__link">
+        <a href="javascript:void(0);" class="menu__link">
+          <i class="menu__icon fa-solid fa-user"></i>
+          <span class="menu__text"> Intro </span>
+        </a>
+      </li>
+      <li class="menu__item">
+        <a href="javascript:void(0);" class="menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
           <span class="menu__text"> About </span>
         </a>
       </li>
       <li class="menu__item">
-        <a href="#" class="menu__link">
+        <a href="javascript:void(0);" class="menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
+          <span class="menu__text"> Experience </span>
         </a>
       </li>
       <li class="menu__item">
-        <a href="#" class="menu__link">
+        <a href="javascript:void(0);" class="menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
+          <span class="menu__text"> Skills </span>
         </a>
       </li>
       <li class="menu__item">
-        <a href="#" class="menu__link">
+        <a href="javascript:void(0);" class="menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
-        </a>
-      </li>
-      <li class="menu__item">
-        <a href="#" class="menu__link">
-          <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
+          <span class="menu__text"> Contacts </span>
         </a>
       </li>
     </ul>
 
-    <span class="mobile-menu-burger"><span class="mobile-menu-burger__bar"></span></span>
+    <span class="mobile-menu-burger nav__mobile-menu-burger"><span class="mobile-menu-burger__bar"></span></span>
 
-    <ul class="mobile-menu">
+    <ul class="mobile-menu nav__mobile-menu">
       <li class="mobile-menu__item menu__item--active">
-        <a href="#" class="mobile-menu__link">
+        <a href="javascript:void(0);" class="mobile-menu__link">
+          <i class="menu__icon fa-solid fa-user"></i>
+          <span class="menu__text"> Intro </span>
+        </a>
+      </li>
+      <li class="mobile-menu__item">
+        <a href="javascript:void(0);" class="mobile-menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
           <span class="menu__text"> About </span>
         </a>
       </li>
       <li class="mobile-menu__item">
-        <a href="#" class="mobile-menu__link">
+        <a href="javascript:void(0);" class="mobile-menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
+          <span class="menu__text"> Experience </span>
         </a>
       </li>
       <li class="mobile-menu__item">
-        <a href="#" class="mobile-menu__link">
+        <a href="javascript:void(0);" class="mobile-menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
+          <span class="menu__text"> Skills </span>
         </a>
       </li>
       <li class="mobile-menu__item">
-        <a href="#" class="mobile-menu__link">
+        <a href="javascript:void(0);" class="mobile-menu__link">
           <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
-        </a>
-      </li>
-      <li class="mobile-menu__item">
-        <a href="#" class="mobile-menu__link">
-          <i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__text"> About </span>
+          <span class="menu__text"> Contacts </span>
         </a>
       </li>
       <div class="mobile-menu__lang-switcher">
@@ -90,8 +91,6 @@
         </ul>
       </div>
     </ul>
-    
-
     <div class="nav__lang-switcher">
       <div class="nav__lang lang--active"><img src="./flags/gb.svg" alt="lang-gb" class="lang__icon"></div>
       <ul class="nav__languages">
@@ -99,282 +98,420 @@
         <li class="nav__lang"><a href="#"><img src="./flags/ru.svg" alt="lang-ru" class="lang__icon"></a></li>
       </ul>
     </div>
-    
   </nav>
+
   <main class="main swiper swiper-container">
-    <div class="swiper-wrapper">
-      <section class="section main-section swiper-slide">
-        <div class="swiper swiper-scrollbar-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="section__inner container g-0">
-                <div class="row justify-content-center align-items-center">
-                  <div class="col-10 col-md-7 col-lg-5 col-xl-4 py-4 px-md-4 mb-md-4 mb-lg-0">
-                    <div class="main-photo">
-                      <div class="main-photo__inner"></div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-12 col-lg-7 col-xl-7 px-md-4">
-                    <h1 class="section__title main-section__title">Anastassia Martsenko</h1>
-                    <p class="main-section__subtitle">Web developer</p>
-                    <p class="section__text">Web developer Web developer Web developer Web developer Web developer Web developer Web developer Web developer</p>
-                    <div class="section__social-links">
-                      <a href="https://www.facebook.com/anastassia.marchenko" class="section__social-link"><i
-                          class="fa-brands fa-facebook"></i></a>
-                    </div>
-                    <div class="section__button-links">
-                      <a href="javascript:void(0);" class="button-link"> Download CV
-                      </a>
-                    </div>
-                  </div>
+    <div class="swiper-slide section main-section"> 
+      <div class="swiper swiper-scrollbar-container">
+        <div class="swiper-slide">
+          <div class="container g-0">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-8 col-md-7 col-lg-5 col-xl-4 py-4 px-md-4 mb-md-4 mb-lg-0">
+                <div class="main-section__photo main-photo">
+                  <div class="main-photo__inner"></div>
                 </div>
-                <footer class="section__footer--mobile">
-                  <a href="javascript:void(0);" class="swipe-button">
-                    <span class="swipe-button__icon"></span>
-                    <span class="swipe-button__text">Swipe left</span>
+              </div>
+              <div class="col-12 col-md-12 col-lg-7 col-xl-7 px-md-4">
+                <h1 class="title main-section__title">Anastassia Martsenko</h1>
+                <p class="subtitle subtitle--animated main-section__subtitle my-4">Web developer</p>
+                <p class="text section__text">
+                  Hello. My name is Anastassia and I am looking for a new job in the field of programming. 
+                  Maybe I am the person you are looking for. 
+                </p>
+                <p class="text section__text">
+                  You can scroll down the page if you're viewing it on a computer, or swipe left on a mobile phone.
+                  Also, if necessary, you can download my resume in PDF format by clicking the button below.
+                </p>
+                <p class="text">
+                  Thank you for your attention :)
+                </p>
+                <div class="section__social-links my-4">
+                  <a href="https://www.facebook.com/anastassia.marchenko" class="social-link" target="_blank"><i
+                      class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="section__button-links my-4">
+                  <a href="javascript:void(0);" class="button-link"> <span>Download CV</span>
                   </a>
-                </footer>
+                </div>
               </div>
             </div>
-            <footer class="section__footer">
-              <a href="javascript:void(0);" class="scroll-button">
-                <span class="scroll-button__icon"></span>
-                <span class="scroll-button__text">Scroll down</span>
+            <footer class="section__mobile-footer">
+              <a href="javascript:void(0);" class="swipe-button">
+                <span class="swipe-button__icon"></span>
+                <span class="swipe-button__text">Swipe left</span>
               </a>
             </footer>
           </div>
-          <div class="swiper-scrollbar"></div>
         </div>
-      </section>
-      <section class="section swiper-slide">
-        <div class="swiper swiper-scrollbar-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="section__inner container g-0">
-                <h2 class="section__title b-bottom"><span>A</span>bout me</h2>
-                <div class="row">
-                  <div class="col-12 py-4">
-                      <p class="section__text">Kompany is an agency specialized in building brands and startup, we are
-                        a
-                        team of cool people wanting to develop cool and smart technologies out of something simple.
-                      </p>
-                      <p class="section__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet
-                        malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non.</p>
-                  </div>
-                </div>
+        <div class="swiper-scrollbar"></div>
+        <footer class="section__footer">
+          <a href="javascript:void(0);" class="scroll-button">
+            <span class="scroll-button__icon"></span>
+            <span class="scroll-button__text">Scroll down</span>
+          </a>
+        </footer>
+      </div>
+    </div>    
+    <div class="swiper-slide section">
+      <div class="swiper swiper-scrollbar-container">
+        <div class="swiper-slide">
+          <div class="container g-0">
+            <h2 class="title section__title b-bottom"><span>A</span>bout me</h2>
+            <div class="row">
+              <div class="col-12 col-lg-9 px-4 py-4">
+                  <p class="text section__text">
+                    I'm not a very experienced web developer. 
+                    I want to develop further in this direction, 
+                    but if I see interest and prospects in some other area, 
+                    I can always start doing something new, because I'm open to new knowledges.
+                  </p>
+                  <p class="text section__text">
+                    I worked in my specialty for two years. 
+                    Developed both front-end and back-end. 
+                    It turned out that in parallel with the main work, I started teach programming to children, 
+                    which I have been doing for the past four years. 
+                    Now I want to get back to what I always liked to do — programming.
+                  </p>
+                  <p class="text">
+                    I've developed an interest in computers since primary school, but I first tried coding when I was 18. 
+                    Along with programming skills I developed perseverance, good concentration, 
+                    and most importantly the need to finish each task I decide to take on. 
+                  </p>
+                 
+              </div>
+              <div class="col-12 col-lg-3 px-4 py-4 my-auto">
+                <h3 class="subtitle section__subtitle b-bottom"><i class="section__icon fa-solid fa-person"></i>personal characteristics</h3>
+                <ul class="section__list py-4">
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Сonscientious
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Responsive
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Reliable
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Hard-working
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="swiper-scrollbar"></div>
-        </div>
-      </section>
-      <section class="section swiper-slide">
-          <div class="swiper swiper-scrollbar-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="section__inner container g-0">
-                  <h2 class="section__title b-bottom"><span>E</span>xperience</h2>
-                  <div class="row">
-                    <div class="col-12 col-md-6 px-4">
-                      <h3 class="section__subtitle b-bottom"><i class="section__icon fa-solid fa-briefcase"></i>Experience</h3>
-                      <div class="resume-item b-bottom">
-                        <p class="resume-item__date resume-item__date--active">2013 - Present</p>
-                        <p class="resume-item__job-title">Art Director</p>
-                        <p class="resume-item__company">Facebook Inc.</p>
-                        <p class="section__text">Collaborate with creative and development teams on the execution of ideas.</p>
-                      </div>
-                      <div class="resume-item b-bottom">
-                        <p class="resume-item__date resume-item__date">2013 - Present</p>
-                        <p class="resume-item__job-title">Art Director</p>
-                        <p class="resume-item__company">Facebook Inc.</p>
-                        <p class="section__text">Collaborate with creative and development teams on the execution of ideas.</p>
-                      </div>
-                      <div class="resume-item b-bottom">
-                        <p class="resume-item__date resume-item__date">2013 - Present</p>
-                        <p class="resume-item__job-title">Art Director</p>
-                        <p class="resume-item__company">Facebook Inc.</p>
-                        <p class="section__text">Collaborate with creative and development teams on the execution of ideas.</p>
-                      </div>
-                      <div class="resume-item">
-                        <p class="resume-item__date resume-item__date">2013 - Present</p>
-                        <p class="resume-item__job-title">Art Director</p>
-                        <p class="resume-item__company">Facebook Inc.</p>
-                        <p class="section__text">Collaborate with creative and development teams on the execution of ideas.</p>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 px-4">
-                      <h3 class="section__subtitle b-bottom"><i class="section__icon fa-solid fa-building-columns"></i>Education</h3>
-                      <div class="resume-item b-bottom">
-                        <p class="resume-item__date resume-item__date--active">2013 - Present</p>
-                        <p class="resume-item__job-title">Art Director</p>
-                        <p class="resume-item__company">Facebook Inc.</p>
-                        <p class="section__text">Collaborate with creative and development teams on the execution of
-                          ideas.</p>
-                      </div>
-                      <div class="resume-item b-bottom">
-                        <p class="resume-item__date">2013 - Present</p>
-                        <p class="resume-item__job-title">Art Director</p>
-                        <p class="resume-item__company">Facebook Inc.</p>
-                        <p class="section__text">Collaborate with creative and development teams on the execution of
-                          ideas.</p>
-                      </div>
-                      <div class="resume-item">
-                        <p class="resume-item__date">2013 - Present</p>
-                        <p class="resume-item__job-title">Art Director</p>
-                        <p class="resume-item__company">Facebook Inc.</p>
-                        <p class="section__text">Collaborate with creative and development teams on the execution of
-                          ideas.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-scrollbar"></div>
-          </div>
-      </section>
-      <section class="section swiper-slide">
-          <div class="swiper swiper-scrollbar-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="section__inner container g-0">
-                  <h2 class="section__title b-bottom"><span>S</span>kills</h2>
-                  <div class="row">
-                    <div class="col-12 col-md-6 px-4">
-                      <h3 class="section__subtitle b-bottom"><i class="section__icon fa-solid fa-briefcase"></i>Coding
-                      </h3>
-                      <div class="section__pies row">
-                        <div class="col-6 col-lg-4 section__pie">
-                          <div class="pie"></div>
-                          <span class="pie__percentage"> 90% </span>
-                          <div class="pie__title"> Wordpress </div>
-                        </div>
-                        <div class="col-6 col-lg-4 section__pie">
-                          <div class="pie"></div>
-                          <span class="pie__percentage"> 90% </span>
-                          <div class="pie__title"> Wordpress </div>
-                        </div>
-                        <div class="col-6 col-lg-4 section__pie">
-                          <div class="pie"></div>
-                          <span class="pie__percentage"> 90% </span>
-                          <div class="pie__title"> Wordpress </div>
-                        </div>
-                        <div class="col-6 col-lg-4 section__pie">
-                          <div class="pie"></div>
-                          <span class="pie__percentage"> 90% </span>
-                          <div class="pie__title"> Wordpress </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 px-4">
-                      <h3 class="section__subtitle b-bottom"><i class="section__icon fa-solid fa-building-columns"></i>Languages</h3>
-                      <div class="section__progress-bars">
-                        <div class="section__progress-bar">
-                          <div class="progress-bar__title"> Russian </div>
-                          <div>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                          </div>
-                        </div>
-                        <div class="section__progress-bar">
-                          <div class="progress-bar__title"> Estonian </div>
-                          <div>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                          </div>
-                        </div>
-                        <div class="section__progress-bar">
-                          <div class="progress-bar__title"> English </div>
-                          <div>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                            <span class="progress-bar__circle"></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-scrollbar"></div>
-          </div>
-      </section>
-      <section class="section swiper-slide">
-          <div class="swiper swiper-scrollbar-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="section__inner container g-0">
-                  <h2 class="section__title b-bottom"><span>G</span>et in touch</h2>
-                  <div class="row">
-                    <div class="col-12 py-4">
-                      <div class="section__contacts">
-                        <p class="contacts__item section__text"><span>ADRESS ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>EMAIL ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>PHONE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                        <p class="contacts__item section__text"><span>FREELANCE ....... </span>test</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-scrollbar"></div>
-          </div>
-        
-      </section>
+        </div> 
+        <div class="swiper-scrollbar"></div>
+      </div>
     </div>
+    <div class="swiper-slide section">
+      <div class="swiper swiper-scrollbar-container">
+        <div class="swiper-slide">
+          <div class="container g-0">
+            <h2 class="title section__title b-bottom"><span>E</span>xperience</h2>
+            <div class="row">
+              <div class="col-12 px-4">
+                <h3 class="subtitle section__subtitle b-bottom"><i class="section__icon fa-solid fa-briefcase"></i>Experience</h3>
+                <div class="resume-item section__resume-item b-bottom">
+                  <p class="resume-item__date">2019 - 2022</p>
+                  <p class="resume-item__job-title">Teacher</p>
+                  <p class="resume-item__company">HELLOIT GROUP OÜ</p>
+                  <ul class="section__list">
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Taught the basics of programming to school-age children 
+                      (Minecraft Educaton Edition, Java, Python, HTML/CSS/JS, Unity).
+                    </li>
+                  </ul>
+                </div>
+                <div class="resume-item section__resume-item b-bottom">
+                  <p class="resume-item__date resume-item__date">2019 - 2022</p>
+                  <p class="resume-item__job-title">Education Coordinator</p>
+                  <p class="resume-item__company">HELLOIT GROUP OÜ</p>
+                  <ul class="section__list">
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Created and updated study programs.
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Analyzed students' performance.
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Created study groups.
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Communicated and resolved issues with clients.
+                    </li>
+                  </ul>
+                </div>
+                <div class="resume-item section__resume-item b-bottom">
+                  <p class="resume-item__date resume-item__date">2019 - 2021</p>
+                  <p class="resume-item__job-title">Web Developer</p>
+                  <p class="resume-item__company">IT SOLUTIONS GROUP OÜ</p>
+                  <ul class="section__list">
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      At first, I worked a lot with Worpdress. Made changes to the design of the sites. 
+                      Added or changed the functionality of the sites and the plugins used by the sites (HTML/CSS/JS, PHP).
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      I wrote a web application using the Symfony framework for a company that provided a service for the repair of mobile devices.
+                      The application allowed entering customer data, 
+                      after which it automatically sent SMS to customers depending on the status of the repair.
+                      In addition, the application was integrated with Erply through an API, 
+                      which made it possible to create profit charts for different months and at different service points.
+                    </li> 
+                  </ul>
+                </div>
+                <div class="resume-item section__resume-item b-bottom">
+                  <p class="resume-item__date resume-item__date">2018</p>
+                  <p class="resume-item__job-title">Website Moderator</p>
+                  <p class="resume-item__company">BALTIC SUPPORT OÜ</p>
+                  <ul class="section__list">
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Moderated websites according to company rules.
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Every month I took a test on knowledge of the rules of moderation.
+                    </li>
+                  </ul>
+                </div>
+                <div class="resume-item section__resume-item b-bottom">
+                  <p class="resume-item__date resume-item__date">2017</p>
+                  <p class="resume-item__job-title">Intern</p>
+                  <p class="resume-item__company">ERICSSON EESTI AS</p>
+                  <ul class="section__list">
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Together with IT-technicians solved technical problems at the factory of the enterprise.
+                    </li>
+                  </ul>
+                </div>
+                <div class="resume-item section__resume-item">
+                  <p class="resume-item__date resume-item__date">2014</p>
+                  <p class="resume-item__job-title">Assembler</p>
+                  <p class="resume-item__company">ERICSSON EESTI AS</p>
+                  <ul class="section__list">
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Mounted components on the boards.
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Fixed defects on boards.
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Gave information about problems and defects.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 px-4">
+                <h3 class="subtitle section__subtitle b-bottom"><i class="section__icon fa-solid fa-building-columns"></i>Education</h3>
+                <div class="resume-item section__resume-item">
+                  <p class="resume-item__date resume-item__date--active">2015 - Present</p>
+                  <p class="resume-item__job-title">Baccalaureate</p>
+                  <p class="resume-item__company">TALLINNA TEHNIKAÜLIKOOL</p>
+                  <ul class="section__list">
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      Information technologies, Informatics
+                    </li>
+                    <li class="text section__list-item">
+                      <i class="fa-solid fa-bookmark section__list-icon"></i>
+                      To get a bachelor's degree, I need to write a thesis.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </div>   
+    </div>
+    <div class="swiper-slide section">
+      <div class="swiper swiper-scrollbar-container">
+        <div class="swiper-slide">
+          <div class="container g-0">
+            <h2 class="title section__title b-bottom"><span>S</span>kills</h2>
+            <div class="row">
+              <div class="col-12 col-md-6 px-4">
+                <h3 class="subtitle section__subtitle b-bottom"><i class="section__icon fa-solid fa-code"></i>Coding
+                </h3>
+                <div class="row py-4">
+                  <div class="pie section__pie col col-sm-6 col-lg-4">
+                    <div class="pie__circle"></div>
+                    <span class="pie__percentage"> </span>
+                    <div class="pie__title"> Wordpress </div>
+                  </div>
+                  <div class="pie section__pie col col-sm-6 col-lg-4">
+                    <div class="pie__circle"></div>
+                    <span class="pie__percentage"> </span>
+                    <div class="pie__title"> HTML/CSS/JS </div>
+                  </div>
+                  <div class="pie section__pie col col-sm-6 col-lg-4">
+                    <div class="pie__circle"></div>
+                    <span class="pie__percentage"> </span>
+                    <div class="pie__title"> Java/Python </div>
+                  </div>
+                  <div class="pie section__pie col col-sm-6 col-lg-4">
+                    <div class="pie__circle"></div>
+                    <span class="pie__percentage"> </span>
+                    <div class="pie__title"> PHP (Symfony) </div>
+                  </div>
+                  <div class="pie section__pie col col-sm-6 col-lg-4">
+                    <div class="pie__circle"></div>
+                    <span class="pie__percentage"> </span>
+                    <div class="pie__title"> C# (Unity) </div>
+                  </div>
+                  <div class="pie section__pie col col-sm-6 col-lg-4">
+                    <div class="pie__circle"></div>
+                    <span class="pie__percentage"> </span>
+                    <div class="pie__title"> React/Vue </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 px-4">
+                <h3 class="subtitle section__subtitle b-bottom"><i class="section__icon fa-solid fa-earth-americas"></i></i>Languages</h3>
+                <div class="py-4">
+                  <div class="progress-bar section__progress-bar">
+                    <div class="progress-bar__title"> Russian </div>
+                    <div class="progress-bar__circles">
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                    </div>
+                  </div>
+                  <div class="progress-bar section__progress-bar">
+                    <div class="progress-bar__title"> Estonian </div>
+                    <div class="progress-bar__circles">
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                    </div>
+                  </div>
+                  <div class="progress-bar section__progress-bar">
+                    <div class="progress-bar__title"> English </div>
+                    <div class="progress-bar__circles">
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                      <span class="progress-bar__circle"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 px-4">
+                <h3 class="subtitle section__subtitle b-bottom"><i class="section__icon fa-solid fa-sliders"></i>Professional skills</h3>
+                <ul class="section__list py-4">
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Experience with HTML5, CSS3, JS;
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Knowledge of JavaScript/JQuery;
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Responsive layout experience;
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Experience in creating HTML pages based on design layouts;
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Experience in developing websites and templates for CMS;
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Knowledge of CSS Frameworks (Bootstrap);
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Basic knowledge of JS frameworks (React, Vue);
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Ability to create 2D and 3D games at a basic level (Unity);
+                  </li>
+                  <li class="text section__list-item">
+                    <i class="fa-solid fa-bookmark section__list-icon"></i>
+                    Experience in back-end development (PHP/Symfony).
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+    <div class="swiper-slide section">
+      <div class="swiper swiper-scrollbar-container">
+        <div class="swiper-slide">
+          <div class="container g-0">
+            <h2 class="title section__title b-bottom"><span>G</span>et in touch</h2>
+            <div class="row d-flex justify-content-center pt-5">
+              <div class="contact col-12 col-md-6 col-lg-4 py-4">
+                <a href="tel:+37256979125" class="contact__link"> <i class="contact__icon fa-solid fa-phone"></i>+372 56 979 125</a>
+              </div>
+              <div class="contact col-12 col-md-6 col-lg-4 py-4">
+                <a href="mailto:martsenkoanastassia@gmail.com" class="contact__link"><i class="contact__icon fa-solid fa-at"></i>martsenkoanastassia@gmail.com</a>
+              </div>
+              <div class="contact col-12 col-md-6 col-lg-4 py-4">
+                <a href="javascript:void(0)" class="contact__link"> <i class="contact__icon fa-solid fa-location-dot"></i> Tallinn, Mustamäe </a>
+              </div>
+            </div> 
+          </div>
+        </div> 
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>   
   </main>
 
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="./script.js"></script>
+  
 </body>
 
 </html>
