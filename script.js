@@ -1,7 +1,9 @@
 const swiper = new Swiper('.swiper-container', {
     direction: 'horizontal',
     slidesPerView: 1,
-    mousewheel: true,
+    mousewheel: {
+        enabled: true,
+    },
     simulateTouch: false,
     createElements: true,
     breakpoints: {
@@ -9,20 +11,22 @@ const swiper = new Swiper('.swiper-container', {
             direction: 'vertical',
         } 
     },
-    longSwipesMs: 1000
-   
+    speed: 500
 })
 
 const scrollableSwiper = new Swiper('.swiper-scrollbar-container', {
-    longSwipesMs: 1000, 
     direction: 'vertical',
     slidesPerView: 'auto',
-    mousewheel:  {
-        enable: true,
-    },
-    simulateTouch: false,
-    freeMode: {
+    mousewheel: {
         enabled: true,
+    },
+    simulateTouch: true,
+    freeMode: {
+        enabled: true, 
+        //momentumRatio: 0.2,
+        //minimumVelocity: 0.1,
+        
+        momentum: false,
     },
     nested: true,
     createElements: true,
@@ -30,22 +34,29 @@ const scrollableSwiper = new Swiper('.swiper-scrollbar-container', {
     scrollbar: {
         el: '.swiper-scrollbar',
         draggable: true,
-        snapOnRelease: true
+        snapOnRelease: false
     },
-  
-    
 })
 
-let allowSlidePrev = false;
-let allowSlideNext = false;
-let isBegginingReached = false;
-let isEndReached = false;
 let arePiesFilled = false;
 let areProgressBarsFilled = false;
 const accentColor = '#4d81b3';
 const piesPercentages = [100, 80, 60, 50, 50, 40];
-const progressCirclesNumber = [12, 7, 7];
-const letters = ['W', 'e', 'b', ' ', 'd', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'];
+const progressCirclesNumber = [12, 7, 8];
+const lettersEn = [
+    ['W', 'e', 'b', ' ', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'],
+    ['T', 'e', 'a', 'c', 'h', 'e', 'r']
+];
+const lettersEt = [
+    ['V', 'e', 'e', 'b', 'i', 'a', 'r', 'e', 'n', 'd', 'a', 'j', 'a'],
+    ['Õ', 'p', 'e', 't', 'a', 'j', 'a']
+];
+const lettersRu = [
+    ['В', 'е', 'б', ' ', 'р', 'а', 'з', 'р', 'а', 'б', 'о', 'т', 'ч', 'и', 'к'],
+    ['П', 'р', 'е', 'п', 'о', 'д', 'а', 'в', 'а', 'т', 'е', 'л', 'ь']
+];
+let lettersIndex = 0;
+
 const slideChangeSpeed = 300;
 
 // Slides
@@ -104,10 +115,24 @@ const fillProgressBars = (progressBars, progressCirclesNumber) => {
 
 // Animated text
 
+const getLettersByLang = () => {
+    const pageLang = $('html').attr('lang');
+    let letters;
+    if (pageLang === 'en') {
+        letters = lettersEn;
+    } else if (pageLang === 'et') {
+        letters = lettersEt;
+    } else {
+        letters = lettersRu;
+    }
+    return letters;
+}
+
 const addLetter = () => {
     return new Promise((resolve, reject) => {
         let text = '';
         let letterIndex = 0;
+        let letters = getLettersByLang()[lettersIndex];
         let timer = setInterval(() => {
             text += letters[letterIndex];
             letterIndex += 1;
@@ -122,17 +147,25 @@ const addLetter = () => {
 
 const removeLetter = () => {
     return new Promise((resolve, reject) => {
+        let letters = getLettersByLang()[lettersIndex];
         let text = letters.join('');
         let timer = setInterval(() => {
             text = text.slice(0, text.length - 1);
             $('.subtitle--animated').html(text);
             if (text.length == 0) {
+                if (lettersIndex === getLettersByLang().length - 1) {
+                    lettersIndex = 0;
+                } else {
+                    lettersIndex += 1;
+                }
                 clearInterval(timer);
                 resolve();
             } 
         }, 100)
     })
 }
+
+
 
 const animateText = async() => {
     while (true) {
@@ -193,8 +226,7 @@ $(() => {
 
     
     $(scrollableSwiper).each((_, sw) => {
-        sw.on('reachBeginning reachEnd', () => {
-            console.log('end');
+        sw.on('toEdge', () => {
             swiper.mousewheel.disable();
             let mousewheelTimer = setTimeout(() => {
                 swiper.mousewheel.enable();
@@ -243,5 +275,14 @@ $(() => {
     $('.scroll-button, .swipe-button').on('click', () => {
         swiper.slideNext();
     })
+
+
+    $(window).on('mousewheel DOMMouseScroll', (e) => {
+        var e = window.event || e; // old IE support
+        var delta = e.wheelDelta || -e.detail;
+        console.log(delta);
+    });
+
+   
     
 })
