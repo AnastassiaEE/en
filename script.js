@@ -1,9 +1,7 @@
 const swiper = new Swiper('.swiper-container', {
     direction: 'horizontal',
     slidesPerView: 1,
-    mousewheel: {
-        enabled: true,
-    },
+    mousewheel: true,
     simulateTouch: false,
     createElements: true,
     breakpoints: {
@@ -17,15 +15,10 @@ const swiper = new Swiper('.swiper-container', {
 const scrollableSwiper = new Swiper('.swiper-scrollbar-container', {
     direction: 'vertical',
     slidesPerView: 'auto',
-    mousewheel: {
-        enabled: true,
-    },
-    simulateTouch: true,
+    mousewheel: true,
+    simulateTouch: false,
     freeMode: {
-        enabled: true, 
-        //momentumRatio: 0.2,
-        //minimumVelocity: 0.1,
-        
+        enabled: true,   
         momentum: false,
     },
     nested: true,
@@ -35,7 +28,7 @@ const scrollableSwiper = new Swiper('.swiper-scrollbar-container', {
         el: '.swiper-scrollbar',
         draggable: true,
         snapOnRelease: false
-    },
+    }
 })
 
 let arePiesFilled = false;
@@ -275,14 +268,4 @@ $(() => {
     $('.scroll-button, .swipe-button').on('click', () => {
         swiper.slideNext();
     })
-
-
-    $(window).on('mousewheel DOMMouseScroll', (e) => {
-        var e = window.event || e; // old IE support
-        var delta = e.wheelDelta || -e.detail;
-        console.log(delta);
-    });
-
-   
-    
 })
